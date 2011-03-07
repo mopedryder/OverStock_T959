@@ -1,0 +1,17 @@
+--- drivers/input/keyboard/cypress/cypress-touchkey.c
++++ drivers/input/keyboard/cypress/cypress-touchkey.c
+@@ -57,6 +58,14 @@
+ 
+ #define DEVICE_NAME "melfas-touchkey"
+ 
++#ifdef CONFIG_KEYPAD_CYPRESS_TOUCH_USE_BLN
++//todo: update this everytime you modify BacklightNotification
++#define BACKLIGHTNOTIFICATION_VERSION 7
++
++#define BACKLIGHT_ON 1
++#define BACKLIGHT_OFF 2
++#endif
++
+ static int touchkey_keycode[5] =
+     { NULL, KEY_BACK, KEY_MENU, KEY_ENTER, KEY_END };
+ 
